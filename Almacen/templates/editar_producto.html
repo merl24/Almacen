@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<title>{% block title %}Editar Producto{% endblock %}</title>
+<div class="container">
+    <h2>Editar Producto</h2>
+    
+    <form action="/editar/" method="POST">{% csrf_token %}
+        <label>Código:</label>
+        <input type="text" name="txtcodigo" class="form-control" value="{{producto.codigo}}" readonly>
+        <label>Nombre:</label>
+        <input type="text" name="txtnombre" class="form-control" value="{{producto.nombre}}" required>
+        <label>Precio:</label>
+        <input type="text" data-type="decimal" name="txtprecio" class="form-control" value="{{producto.precio}}" required>
+        <label>Cantidad:</label>
+        <input type="text" data-type="decimal" name="txtcantidad" class="form-control" value="{{producto.cantidad}}" required>
+        <label>Familia:</label>
+        <input type="text" name="txtfamilia" class="form-control" value="{{producto.familia}}" required>
+        <label>Subfamilia:</label>
+        <input type="text" name="txtsubfamilia" class="form-control" value="{{producto.subfamilia}}" required>
+        <br>
+        <button type="submit" class="btn btn-success">Guardar Cambios</button>
+        <a href="/productos" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<title>{% block title %}Registro de Productos{% endblock %}</title>
+<div class="container">
+    <h2>Registrar Producto</h2>
+    <form action="/registrar_prod/" method="POST">{% csrf_token %}
+        <label>Código:</label>
+        <input type="text" name="txtcodigo" class="form-control" placeholder="Cod. producto" required>
+        <label>Nombre:</label>
+        <input type="text" name="txtnombre" class="form-control" placeholder="Producto" required>
+        <label>Precio:</label>
+        <input type="text" data-type="decimal" name="txtprecio" class="form-control" placeholder="Precio" required>
+        <label>Cantidad:</label>
+        <input type="text" data-type="decimal" name="txtcantidad" class="form-control" placeholder="Cantidad" required>
+        <label>Familia:</label>
+        <input type="text" name="txtfamilia" class="form-control" placeholder="Familia" required>
+        <label>Subfamilia:</label>
+        <input type="text" name="txtsubfamilia" class="form-control" placeholder="Sub Familia" required>
+        <br>
+        <button type="submit" class="btn btn-success">Guardar Producto</button>
+        <button type="reset" class="btn btn-secondary">Limpiar</button>
+    </form>
+</div>
+{% endblock %}
